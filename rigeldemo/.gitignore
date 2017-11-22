@@ -21,3 +21,4 @@ build.sh
 /src/main/webapp/resources/index.html
 /src/main/webapp/resources/index2.html
 package-lock.json
+/bin/

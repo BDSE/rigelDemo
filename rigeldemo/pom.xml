@@ -7,6 +7,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>rigeldemo Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+		<build.timestamp>${maven.build.timestamp}</build.timestamp>
+		<java.version>1.8</java.version>
+		<webpack_env>dev</webpack_env>
+	</properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -20,6 +27,12 @@
     <version>2.5</version>
     <scope>provided</scope>
 </dependency>
+<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-maven-plugin</artifactId>
+			<version>0.0.20</version>
+			<type>maven-plugin</type>
+		</dependency>
   </dependencies>
   <build>
     <finalName>Rigel</finalName>
@@ -30,8 +43,8 @@
 				<version>3.2</version>
 				<configuration>
 					<verbose>true</verbose>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
@@ -40,6 +53,44 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.2</version>
 			</plugin>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+       <version>0.0.20</version>
+    <executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<nodeVersion>v0.10.25</nodeVersion>
+							<npmVersion>1.4.3</npmVersion>
+						</configuration>
+					</execution>
+          <execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+          <execution>
+						<id>bower install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>run bower</arguments>
+						</configuration>
+					</execution>
+    </executions>
+    </plugin>
     </plugins>
   </build>
 </project>
