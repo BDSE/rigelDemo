@@ -12,7 +12,7 @@ const watch = (process.env.WATCH)? true:false;
 const isDev = process.env.ENV === 'dev';
 const isPrd = process.env.ENV === 'prd';
 const ASSET_PATH = (process.env.CDN_URL)?process.env.CDN_URL+"/Rigel" : '/Rigel';
-const context = __dirname+'/src/resources';
+const context = __dirname+'/src/main/webapp/resources';
 
 //Add js libraries here.
 const VENDOR_LIB = [

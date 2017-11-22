@@ -16,4 +16,8 @@ build.sh
 .project
 /src/main/webapp/resources/build
 /src/main/webapp/resources/lib
+
+# the below two entries must be deleted later and replaced with the project jsp when created.
+/src/main/webapp/resources/index.html
+/src/main/webapp/resources/index2.html
 package-lock.json

@@ -1,6 +1,6 @@
 import './modules/obj2';
 import obj from './modules/obj1';
-import arr from './array';
+import arr from './modules/array';
 import fun1 from './modules/module1';
 import fun2 from './modules/module2';
 import './modules/image-viewer';
