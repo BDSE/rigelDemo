@@ -1,5 +1,5 @@
 var obj = {
-    a: "amar",
+    a: "test",
     b:543
 };
  export default obj;

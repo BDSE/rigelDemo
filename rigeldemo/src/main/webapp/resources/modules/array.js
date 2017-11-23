@@ -1,5 +1,5 @@
 
-const arr = ['amar', 'shableen', 'sandhu','avu','nihu','ammi'];
+const arr = ['test1', 'test2', 'test3','test4'];
 
 console.log("from array class....");
 

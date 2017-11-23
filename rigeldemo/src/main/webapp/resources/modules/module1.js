@@ -2,7 +2,7 @@ import $ from '../lib/jquery/dist/jquery.js';
 $('body').addClass("anotherTest");
 window.SHC = {a:20};// global variable can be accessed in al the modules
  const myfun = (...args)=> {
-     console.log("mymodule 1 it is..sourcemaps work");
+     console.log("mymodule 1..sourcemaps work");
     let sum = 0;
     for(let x in args){
         sum = sum+args[x];

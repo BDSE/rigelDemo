@@ -1,9 +1,9 @@
 {
-    "name": "testwebpack",
+    "name": "rigel",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "webpack_dev": "ENV='dev' webpack",
+        "webpack_dev": "ENV='dev' webpack --color=true",
         "webpack_prod": "CDN_URL='http://mytestcdn.com/stanford' ENV='prd' webpack",
         "webpack_stg": "ENV='stg' webpack",
         "webpack_min": "webpack -p",
