@@ -7,7 +7,7 @@
         "webpack_prod": "CDN_URL='http://mytestcdn.com/stanford' ENV='prd' webpack",
         "webpack_stg": "ENV='stg' webpack",
         "webpack_min": "webpack -p",
-        "webpack_watch": "ENV='dev' webpack --watch",
+        "webpack_watch": "ENV='dev' TC=$Tomcat webpack --watch",
         "bower": "bower install",
         "serve": "webpack-dev-server"
     },
@@ -42,6 +42,7 @@
         "url-loader": "^0.6.2",
         "webpack": "^3.8.1",
         "webpack-dev-server": "^2.9.4",
-        "webpack-merge": "^4.1.1"
+        "webpack-merge": "^4.1.1",
+        "webpack-shell-plugin": "^0.5.0"
     }
 }
