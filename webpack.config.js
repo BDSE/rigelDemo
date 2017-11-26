@@ -113,13 +113,13 @@ let config = {
         new htmlWebpackPlugin({
             chunks: ['mainPageEntry', 'vendor', 'manifest'],
             title: 'First page',
-            template: './indexTemplate.html',
+            template: './templates/indexTemplate.html',
             filename: '../index.html'
         }),
         new htmlWebpackPlugin({
             chunks: ['nextPageEntry', 'vendor', 'manifest'],
             title: 'Second page',
-            template: './indexTemplate2.html',
+            template: './templates/indexTemplate2.html',
             filename: '../index2.html'
         })
         // new webpack.SourceMapDevToolPlugin({
@@ -142,7 +142,8 @@ if (isDev) {
         //     })
         // ]
     });
-} else {
+}
+else {
     config = merge(config, {
         devtool: (isPrd) ? 'none' : 'source-map', //adding source maps for staging and poc envs.
         plugins: [
