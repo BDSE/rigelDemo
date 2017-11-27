@@ -15,4 +15,4 @@ function multiply(a, b) {
 }
 
 //export {myfun, myfun2};
-export default myfun;
+//export default myfun;
