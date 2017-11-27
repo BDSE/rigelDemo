@@ -6,6 +6,7 @@
  * Testing Framework: this file uses Mocha with assertion library, chai. Jasmine can also be used.
  * Webpack: test-contex.js serves as an entry file to webpack, all test js files must be imported there.
  */
+const path = require('path');
 module.exports = function (config) {
     config.set({
         files: [
@@ -14,6 +15,7 @@ module.exports = function (config) {
                 watched: false
             }
         ],
+        exclude: ['**/*.png', '**/*.scss'],
         frameworks: ['mocha', 'chai'],
         preprocessors: {
             //this file becomes the entry point for webpack, import all test files here and webpack
@@ -23,12 +25,38 @@ module.exports = function (config) {
         port: 9876,
         webpack: {
             devtool: 'inline-source-map',
+            output: {
+                publicPath: '/'
+            },
             module: {
                 rules: [
                     {
                         test: /\.js$/,
                         exclude: [/lib/, /node_modules/],
                         use: 'babel-loader' // using babel to transpile ES6 code in the test files.
+                    },
+                    {
+                        test: /\.js$/,
+                        use: {
+                            loader: 'istanbul-instrumenter-loader',
+                            options: { esModules: true }
+                        },
+                        enforce: 'post',
+                        include: path.resolve('src/main/webapp/resources/js')
+                    },
+                    {
+                        test: /\.(jpe?g|png|gif|svg)$/,
+                        use: [{
+                            loader: 'file-loader'
+                        }]
+                    },
+                    {
+                        test: /\.scss$/,
+                        use: [
+                            'style-loade',
+                            'css-loader',
+                            'sass-loader'
+                        ]
                     }
                 ]
             },
@@ -53,8 +81,18 @@ module.exports = function (config) {
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: true,
 
-        reporters: ['mocha'],
+        reporters: ['mocha', 'coverage-istanbul'],
 
+        coverageIstanbulReporter: {
+            reports: ['html', 'lcovonly'],
+            dir: path.join(__dirname, 'jsCoverageReport'),
+            'report-config': {
+                html: {
+                    subdir: 'html'
+                }
+            },
+            fixWebpackSourcePaths: true
+        },
         // Concurrency level
         // how many browser should be started simultaneous
         concurrency: Infinity

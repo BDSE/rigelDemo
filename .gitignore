@@ -1,5 +1,6 @@
 /target/
-/coverage
+/coverage/
+/jsCoverageReport/
 .checkstyle
 .classpath
 .pmd

@@ -22,3 +22,5 @@ for (var x in arr) {
 }
 
 obj.a = "modified from index.js";
+
+//export default;
