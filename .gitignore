@@ -24,3 +24,4 @@ build.sh
 package-lock.json
 /bin/
 settings.json
+.vscode/tasks.json
